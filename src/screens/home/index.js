@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { ImageBackground, View, StatusBar, StyleSheet, TextInput, KeyboardAvoidingView } from "react-native";
-import { Container, Button, Text } from "native-base";
-import Dimensions from 'Dimensions';
+import { ImageBackground, View, StatusBar } from "react-native";
+import { Container, Button, H3, Text } from "native-base";
 
 import styles from "./styles";
 
-const launchscreenBg = require("../../../assets/background.jpg");
-const launchscreenLogo = require("../../../assets/logo-main.png");
+const launchscreenBg = require("../../../assets/launchscreen-bg.png");
+const launchscreenLogo = require("../../../assets/logo-kitchen-sink.png");
 
 class Home extends Component {
   render() {
@@ -17,51 +16,30 @@ class Home extends Component {
           <View style={styles.logoContainer}>
             <ImageBackground source={launchscreenLogo} style={styles.logo} />
           </View>
-          <KeyboardAvoidingView behavior="padding" style={{flex: 1, alignItems: 'center'}}>
-            <View style={stylesIn.inputWrapper}>
-                <TextInput 
-                style={stylesIn.input}
-                placeholder="Username"
-                placeholderTextColor="black"/>
-            </View>              
-            <View style={stylesIn.inputWrapper}>
-                <TextInput 
-                style={stylesIn.input}
-                placeholder="Password"
-                placeholderTextColor="black"/>
-            </View>
-            <View style={{ marginBottom: 120 }}>
+          <View
+            style={{
+              alignItems: "center",
+              marginBottom: 50,
+              backgroundColor: "transparent"
+            }}
+          >
+            <H3 style={styles.text}>App to showcase</H3>
+            <View style={{ marginTop: 8 }} />
+            <H3 style={styles.text}>NativeBase components</H3>
+            <View style={{ marginTop: 8 }} />
+          </View>
+          <View style={{ marginBottom: 80 }}>
             <Button
-              style={{ backgroundColor: "#cbce27", alignSelf: "center" }}
+              style={{ backgroundColor: "#6FAF98", alignSelf: "center" }}
               onPress={() => this.props.navigation.navigate("DrawerOpen")}
             >
-              <Text>Login</Text>
+              <Text>Lets Go!</Text>
             </Button>
           </View>
-          </KeyboardAvoidingView>
-         
         </ImageBackground>
       </Container>
     );
   }
 }
-
-const DEVICE_WIDTH = Dimensions.get('window').width;
-const DEVICE_HEIGHT = Dimensions.get('window').height;
-
-const stylesIn = StyleSheet.create({
-  input: {
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
-    width: DEVICE_WIDTH - 40,
-    height: 40,
-    marginHorizontal: 20,
-    paddingLeft: 20,
-    borderRadius: 20,
-    color: '#000000',
-  },
-  inputWrapper: {
-    flex: 1,
-  },
-});
 
 export default Home;

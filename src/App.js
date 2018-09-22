@@ -3,6 +3,7 @@ import { Root } from "native-base";
 import { StackNavigator, DrawerNavigator } from "react-navigation";
 
 import Home from "./screens/home/";
+import Login from "./screens/Login/";
 import SideBar from "./screens/sidebar";
 
 
@@ -21,10 +22,11 @@ const Drawer = DrawerNavigator(
   
 const AppNavigator = StackNavigator(
     {
+        Login: {screen: Login},
         Drawer: { screen: Drawer }
     },
     {
-        initialRouteName: "Drawer",
+        initialRouteName: "Login",
         headerMode: "none"
     }
 )
